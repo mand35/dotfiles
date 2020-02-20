@@ -13,11 +13,11 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " General Plugins
-Plugin 'itchyny/lightline.vim'
+"Plugin 'itchyny/lightline.vim'
 "Plugin 'scrooloose/nerdtree'
 "Plugin 'scrooloose/syntastic'
-Plugin 'w0rp/ale'
-Plugin 'maximbaz/lightline-ale'
+"Plugin 'w0rp/ale'
+"Plugin 'maximbaz/lightline-ale'
 Plugin 'godlygeek/tabular'
 Plugin 'mhinz/vim-signify'
 Plugin 'ervandew/supertab'
@@ -29,13 +29,13 @@ Plugin 'tpope/vim-surround'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 " Snipmate & Co
 Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
+"Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 " Work related
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'rodjek/vim-puppet'
-Plugin 'fatih/vim-go'
+Plugin 'vim-syntastic/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -56,11 +56,13 @@ filetype plugin indent on    " required by Vundle
 
 "change leader to something more
 "convenient on a sg keyboard
-let mapleader = ","
+"let mapleader = ","
 
 "turn on syntax highlighting
 syntax enable
-colorscheme bubblegum-256-dark
+"colorscheme bubblegum-256-dark
+"colorscheme moonlight
+colorscheme panic
 
 " always display status line
 set laststatus=2
@@ -74,7 +76,7 @@ source $HOME/.vim/config/markdown-preview.vim
 set showcmd                    " show incomplete cmds down the bottom
 set noshowmode                 " do not show current mode down the bottom; already shown by lightline
 set showmatch                  " set show matching parenthesis
-set number                     " show line numbers
+"set number                     " show line numbers
 set scrolloff=3                " scroll that many lines if cursor leaves viewport
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set history=1000               " store lots of :cmdline history
@@ -148,22 +150,22 @@ endfunction
 " Don't add the comment prefix when I hit enter or o/O on a comment line.
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" Arrow keys navigate split windows!
-nmap <Up> <C-W><Up>
-nmap <Down> <C-W><Down>
-nmap <Left> <C-W><Left>
-nmap <Right> <C-W><Right>
+"" Arrow keys navigate split windows!
+"nmap <Up> <C-W><Up>
+"nmap <Down> <C-W><Down>
+"nmap <Left> <C-W><Left>
+"nmap <Right> <C-W><Right>
 
 " Reselect visual block after indent (thanks @twe4ked)
 vnoremap < <gv
 vnoremap > >gv
 
-if &term =~ '256color'
-  " disable Background Color Erase (BCE) so that color schemes
-  " render properly when inside 256-color tmux and GNU screen.
-  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
-  set t_ut=
-endif
+"if &term =~ '256color'
+"  " disable Background Color Erase (BCE) so that color schemes
+"  " render properly when inside 256-color tmux and GNU screen.
+"  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+"  set t_ut=
+"endif
 
 " TexLive stuff
 " IMPORTANT: grep will sometimes skip displaying the file name if you
